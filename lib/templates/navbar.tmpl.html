@@ -1,0 +1,52 @@
+<nav ng-show="isAuth" class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Meny</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+			</button>
+
+			<!-- The application switcher -->
+			<ul class="nav navbar-nav hidden-xs">
+				<li class="dropdown" dropdown><a href="#" class="dropdown-toggle" data-toggle="dropdown" dropdown-toggle><i class="fa fa-navicon"></i> </a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">F/NLF forside</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Klubbadministrasjon</a></li>
+						<li><a href="#">Avviksrapportering</a></li>
+						<li><a href="#">Utstyrsdatabase</a></li>
+
+						<li><a href="#">Applikasjon</a></li>
+						<li class="divider"></li>
+						<li><a href="#">Applikasjon</a></li>
+					</ul></li>
+			</ul>
+			<a class="navbar-brand" ng-href="#!/"> F/NLF Elektroniske Tjenester</a>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-show="isAuth">
+			<ul class="nav navbar-nav navbar-right">
+
+				<li class="dropdown" ng-show="isAuth" dropdown><a href class="dropdown-toggle" data-toggle="dropdown" dropdown-toggle>
+				<i class="fa fa-user" ng-controller="HomeController"></i> {{ name }} <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a ng-href="#!/user/profile"><i class="fa fa-user fa-fw"></i> Profil</a></li>
+						<li><a ng-href="#!/user/"><i class="fa fa-map-marker fa-fw"></i> Medlemsskap</a></li>
+						<li><a ng-href="#!/admin/licenses"><i class="fa fa-newspaper-o fa-fw"></i> Lisenser</a></li>
+						<li class="divider"></li>
+						<li><a ng-href="#!/user/license"><i class="fa fa-newspaper-o fa-fw"></i> Fornyelse</a></li>
+						<li class="divider"></li>
+						<li><a ng-href="#!/login" role="button"><i class="fa fa-power-off fa-fw"></i> Logg ut</a></li>
+					</ul></li>
+
+
+				
+
+			</ul>
+
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>

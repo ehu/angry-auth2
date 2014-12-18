@@ -22,9 +22,6 @@
         //once Angular is started, remove class:
         elem.removeClass('waiting-for-angular');
         
-        
-        $rootScope.currentUserSignedIn = true;
-        
         scope.$on('event:auth-loginRequired', function() {
         	$rootScope.error = 'Login is required';
         	$rootScope.currentUserSignedIn = false;
@@ -44,37 +41,21 @@
 }])
 .controller('LoginModalController', function ($scope, $modal, $log) {
 
-    $scope.items = ['item1', 'item2', 'item3'];
-
     $scope.open = function (size) {
 
       var modalInstance = $modal.open({
         templateUrl: 'views/login-help.tmpl.html',
         controller: 'LoginModalInstanceController',
         size: size,
-        resolve: {
-          items: function () {
-            return $scope.items;
-          }
-        }
       });
 
-      modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
-      }, function () {
-        $log.info('Modal dismissed at: ' + new Date());
-      });
+    
     };
   })
-  .controller('LoginModalInstanceController', function ($scope, $modalInstance, items) {
-
-    $scope.items = items;
-    $scope.selected = {
-      item: $scope.items[0]
-    };
+  .controller('LoginModalInstanceController', function ($scope, $modalInstance) {
 
     $scope.ok = function () {
-      $modalInstance.close($scope.selected.item);
+      $modalInstance.close();
     };
 
     $scope.cancel = function () {
@@ -101,8 +82,6 @@
 
 
 ;
-
-
 
 
 })();

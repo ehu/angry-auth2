@@ -20,11 +20,5 @@
       });
     }
 
-    $scope.logout = function() {
-      $http.post('auth/logout').success(function() {
-    	  $rootScope.$broadcast('event:auth-loginRequired');
-        $scope.restrictedContent = [];
-      });
-    }
   });
 })();
